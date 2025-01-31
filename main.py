@@ -15,14 +15,14 @@ chrome_options.add_argument('--no-sandbox')  # For better stability in headless 
 driver = webdriver.Chrome(options=chrome_options)  # Update path to your chromedriver if necessary
 
 # Open the main page with infinite scroll
-driver.get("https://read.cv/explore/activity")
+driver.get("https://read.cv/explore/")
 
 # Store all profile links in a set (to avoid duplicates)
 all_profile_links = set()
 
 
 # Open the file for writing the profile links
-with open('profile_links.txt', 'w') as file:
+with open('new_profile_links.txt', 'w') as file:
 
     # Keep scrolling as long as the page keeps loading new profiles and the time limit hasn't been reached
     previous_height = driver.execute_script("return document.body.scrollHeight")
@@ -56,4 +56,4 @@ with open('profile_links.txt', 'w') as file:
 # Close the driver
 driver.quit()
 
-print("Profile links have been saved to profile_links.txt")
+print("Profile links have been saved to new-profile_links.txt")
